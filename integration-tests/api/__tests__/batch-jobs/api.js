@@ -64,9 +64,7 @@ describe("/admin/batch-jobs", () => {
 
     const redis_url = `redis://${redisClient.options.host}:${redisClient.options.port}/${redisClient.options.db}`
 
-    console.log({ redis_url })
-
-    medusaProcess = await setupServer({ cwd, redis: redis_url, verbose: false })
+    medusaProcess = await setupServer({ cwd, redis: redis_url, verbose: true })
   })
 
   afterAll(async () => {
