@@ -7,11 +7,16 @@ export abstract class TransactionBaseService<
 > {
   protected abstract manager_: EntityManager
   protected abstract transactionManager_: EntityManager | undefined
+  protected readonly container: TContainer
+  protected readonly configModule?: Record<string, unknown>
 
   protected constructor(
-    protected readonly container: TContainer,
-    protected readonly configModule?: Record<string, unknown>
-  ) {}
+    container: TContainer,
+    configModule?: Record<string, unknown>
+  ) {
+    this.container = container
+    this.configModule = configModule
+  }
 
   withTransaction(transactionManager?: EntityManager): this | TChild {
     if (!transactionManager) {

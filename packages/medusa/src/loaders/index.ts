@@ -121,7 +121,7 @@ export default async (
 
   const authStratActivity = Logger.activity("Initializing auth strategies")
   track("STRATEGIES_INIT_STARTED")
-  await authStrategies({ container, configModule, isTest, app: expressApp })
+  await authStrategies({ container, configModule, app: expressApp })
   const authStratAct = Logger.success(authStratActivity, "Auth strategies initialized") || {}
   track("STRATEGIES_INIT_COMPLETED", { duration: authStratAct.duration })
 
@@ -171,7 +171,7 @@ export default async (
   return { container, dbConnection, app: expressApp }
 }
 
-function asArray(
+export function asArray(
   resolvers: (ClassOrFunctionReturning<unknown> | Resolver<unknown>)[]
 ): { resolve: (container: AwilixContainer) => unknown[] } {
   return {

@@ -6,9 +6,9 @@ import "reflect-metadata"
 import supertest from "supertest"
 import querystring from "querystring"
 import apiLoader from "../loaders/api"
-import passportLoader from "../loaders/passport"
 import servicesLoader from "../loaders/services"
-import strategiesLoader from "../loaders/strategies"
+import strategiesLoader, { authStrategies } from "../loaders/strategies"
+import { asArray } from "../loaders"
 
 const adminSessionOpts = {
   cookieName: "session",
@@ -31,46 +31,71 @@ const config = {
   }
 }
 
-const testApp = express()
+let supertestRequest
+const loadSupertest = async () => {
+  const testApp = express()
 
-const container = createContainer()
-container.register('configModule', asValue(config))
-container.register({
-  logger: asValue({
-    error: () => {},
-  }),
-  manager: asValue(MockManager),
-})
+  const container = createContainer()
+  container.register('configModule', asValue(config))
+  container.register({
+    logger: asValue({
+      error: () => {},
+    }),
+    manager: asValue(MockManager),
+  })
+  container.registerAdd = (name, registration) => {
+    const storeKey = name + "_STORE"
 
-testApp.set("trust proxy", 1)
-testApp.use((req, res, next) => {
-  req.session = {}
-  const data = req.get("Cookie")
-  if (data) {
-    req.session = {
-      ...req.session,
-      ...JSON.parse(data),
+    if (container.registrations[storeKey] === undefined) {
+      container.register(storeKey, asValue([]))
     }
+    const store = container.resolve(storeKey)
+
+    if (container.registrations[name] === undefined) {
+      container.register(name, asArray(store))
+    }
+    store.unshift(registration)
+
+    return container
   }
-  next()
-})
 
-servicesLoader({ container, configModule: config })
-strategiesLoader({ container, configModule: config })
-passportLoader({ app: testApp, container, configModule: config })
+  testApp.set("trust proxy", 1)
+  testApp.use((req, res, next) => {
+    req.session = {}
+    const data = req.get("Cookie")
+    if (data) {
+      req.session = {
+        ...req.session,
+        ...JSON.parse(data),
+      }
+    }
+    next()
+  })
 
-testApp.use((req, res, next) => {
-  req.scope = container.createScope()
-  next()
-})
+  servicesLoader({ container, configModule: config })
+  strategiesLoader({ container, configModule: config })
+  await authStrategies({
+    container,
+    configModule: config,
+    app: testApp
+  })
 
-apiLoader({ container, app: testApp, configModule: config })
+  testApp.use((req, res, next) => {
+    req.scope = container.createScope()
+    next()
+  })
 
-const supertestRequest = supertest(testApp)
+  await apiLoader({ container, app: testApp, configModule: config })
+
+  return supertest(testApp)
+}
 
 export async function request(method, url, opts = {}) {
   const { payload, query, headers = {} } = opts
 
+  if (!supertestRequest) {
+    supertestRequest = await loadSupertest()
+  }
   const queryParams = query && querystring.stringify(query);
   const req = supertestRequest[method.toLowerCase()](`${url}${queryParams ? "?" + queryParams : ''}`)
   headers.Cookie = headers.Cookie || ""

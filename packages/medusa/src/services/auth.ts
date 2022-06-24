@@ -233,7 +233,7 @@ class AuthService extends TransactionBaseService<AuthService> {
               "core-admin-default-auth"
             )
           : this.strategyResolverService_.resolveAuthByType(
-              "store-admin-default-auth"
+              "core-store-default-auth"
             )
     }
 
