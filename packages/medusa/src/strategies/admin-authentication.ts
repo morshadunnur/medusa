@@ -12,7 +12,7 @@ import AbstractAuthStrategy from "../interfaces/authentication-strategy"
 import { AuthService } from "../services"
 import { ConfigModule, MedusaContainer } from "../types/global"
 import { validator } from "../utils/validator"
-import { IsEmail, IsNotEmpty, IsString } from "class-validator"
+import { AdminPostAuthReq } from "../api/routes/admin/auth"
 
 type InjectedDependencies = {
   manager: EntityManager
@@ -146,14 +146,4 @@ export default class AdminDefaultAuthenticationStrategy extends AbstractAuthStra
   ): Promise<void> {
     passport.authenticate(["jwt", "bearer"], { session: false })(req, res, next)
   }
-}
-
-export class AdminPostAuthReq {
-  @IsEmail()
-  @IsNotEmpty()
-  email: string
-
-  @IsString()
-  @IsNotEmpty()
-  password: string
 }

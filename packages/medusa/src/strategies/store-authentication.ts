@@ -10,8 +10,8 @@ import AbstractAuthStrategy from "../interfaces/authentication-strategy"
 import { AuthService } from "../services"
 import { ConfigModule, MedusaContainer } from "../types/global"
 import { validator } from "../utils/validator"
-import { IsEmail, IsNotEmpty } from "class-validator"
 import CustomerService from "../services/customer"
+import { StorePostAuthReq } from "../api/routes/store/auth"
 
 type InjectedDependencies = {
   manager: EntityManager
@@ -159,12 +159,4 @@ export default class StoreDefaultAuthenticationStrategy extends AbstractAuthStra
       }
     )(req, res, next)
   }
-}
-
-export class StorePostAuthReq {
-  @IsEmail()
-  email: string
-
-  @IsNotEmpty()
-  password: string
 }
