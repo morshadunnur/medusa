@@ -113,17 +113,17 @@ export default async (
   const servAct = Logger.success(servicesActivity, "Services initialized") || {}
   track("SERVICES_INIT_COMPLETED", { duration: servAct.duration })
 
-  const authStratActivity = Logger.activity("Initializing auth strategies")
-  track("STRATEGIES_INIT_STARTED")
-  await authStrategies({ container, configModule, isTest, app: expressApp })
-  const authStratAct = Logger.success(authStratActivity, "Auth strategies initialized") || {}
-  track("STRATEGIES_INIT_COMPLETED", { duration: authStratAct.duration })
-
   const expActivity = Logger.activity("Initializing express")
   track("EXPRESS_INIT_STARTED")
   await expressLoader({ app: expressApp, configModule })
   const exAct = Logger.success(expActivity, "Express intialized") || {}
   track("EXPRESS_INIT_COMPLETED", { duration: exAct.duration })
+
+  const authStratActivity = Logger.activity("Initializing auth strategies")
+  track("STRATEGIES_INIT_STARTED")
+  await authStrategies({ container, configModule, isTest, app: expressApp })
+  const authStratAct = Logger.success(authStratActivity, "Auth strategies initialized") || {}
+  track("STRATEGIES_INIT_COMPLETED", { duration: authStratAct.duration })
 
   // Add the registered services to the request scope
   expressApp.use((req: Request, res: Response, next: NextFunction) => {
