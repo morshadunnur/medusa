@@ -442,6 +442,10 @@ export async function registerServices(
           [`tp_${loaded.identifier}`]: aliasTo(name),
         })
       } else if (isAuthStrategy(loaded.prototype)) {
+        if (loaded.beforeInit) {
+          await loaded.beforeInit(app, container, pluginDetails.options)
+        }
+
         container.registerAdd(
           "authenticationStrategies",
           asFunction((cradle) => new loaded(cradle, pluginDetails.options))
@@ -453,14 +457,6 @@ export async function registerServices(
           ).singleton(),
           [`auth_${loaded.identifier}`]: aliasTo(name),
         })
-
-        const strategy: AbstractAuthStrategy<never> = container.resolve(
-          `auth_${loaded.identifier}`
-        )
-
-        if (strategy.afterInit) {
-          await strategy.afterInit(app)
-        }
       } else {
         container.register({
           [name]: asFunction(

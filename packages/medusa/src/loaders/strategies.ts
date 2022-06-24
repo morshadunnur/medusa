@@ -91,7 +91,7 @@ export async function authStrategies({
 
   const core = glob.sync(coreFull, {
     cwd: __dirname,
-    ignore: ["**/__fixtures__/**", "index.js", "index.ts"],
+    ignore: ["**/__fixtures__/**", "**/index.js", "**/index.ts"],
   })
 
   for (const fn of core) {
@@ -100,6 +100,10 @@ export async function authStrategies({
     const name = formatRegistrationName(fn)
 
     if (isAuthStrategy(loaded.prototype)) {
+      if (loaded.beforeInit) {
+        await loaded.beforeInit(app, container, configModule)
+      }
+
       container.registerAdd(
         "authenticationStrategies",
         asFunction((cradle) => new loaded(cradle, configModule))
@@ -111,14 +115,6 @@ export async function authStrategies({
         ).singleton(),
         [`auth_${loaded.identifier}`]: aliasTo(name),
       })
-
-      const strategy: AbstractAuthStrategy<never> = container.resolve(
-        `auth_${loaded.identifier}`
-      )
-
-      if (strategy.afterInit) {
-        await strategy.afterInit(app)
-      }
     }
   }
 }
