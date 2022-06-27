@@ -1,6 +1,6 @@
 {
   "plugins": ["@babel/plugin-proposal-class-properties"],
-  "presets": ["@babel/preset-env"],
+  "presets": ["babel-preset-medusa-package", "@babel/preset-env"],
   "env": {
     "test": {
       "plugins": ["@babel/plugin-transform-runtime"]
