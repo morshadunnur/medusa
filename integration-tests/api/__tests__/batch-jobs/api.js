@@ -8,7 +8,6 @@ const adminSeeder = require("../../helpers/admin-seeder")
 const userSeeder = require("../../helpers/user-seeder")
 
 const { simpleBatchJobFactory } = require("../../factories")
-const { initRedis } = require("../../../helpers/use-redis")
 
 jest.setTimeout(50000)
 
@@ -54,17 +53,10 @@ describe("/admin/batch-jobs", () => {
   let medusaProcess
   let dbConnection
 
-  let redisClient
-
   beforeAll(async () => {
     const cwd = path.resolve(path.join(__dirname, "..", ".."))
-
     dbConnection = await initDb({ cwd })
-    redisClient = await initRedis({ cwd })
-
-    const redis_url = `redis://${redisClient.options.host}:${redisClient.options.port}/${redisClient.options.db}`
-
-    medusaProcess = await setupServer({ cwd, redis: redis_url, verbose: true })
+    medusaProcess = await setupServer({ cwd, verbose: false })
   })
 
   afterAll(async () => {
@@ -158,7 +150,7 @@ describe("/admin/batch-jobs", () => {
       await db.teardown()
     })
 
-    it("Creates a batch job", async() => {
+    it("Creates a batch job", async () => {
       const api = useApi()
 
       const response = await api.post(
@@ -224,7 +216,7 @@ describe("/admin/batch-jobs", () => {
       }
     })
 
-    afterEach(async() => {
+    afterEach(async () => {
       const db = useDb()
       await db.teardown()
     })
@@ -281,39 +273,6 @@ describe("/admin/batch-jobs", () => {
             "Cannot cancel completed batch job"
           )
         })
-    })
-  })
-
-  describe("Product Import Strategy", () => {
-    beforeEach(async () => {
-      try {
-        await setupJobDb(dbConnection)
-      } catch (e) {
-        console.log(e)
-        throw e
-      }
-    })
-
-    afterEach(async () => {
-      const db = useDb()
-      await db.teardown()
-    })
-
-    it("should preprocess the csv file", async () => {
-      const api = useApi()
-
-      const response = await api.post(
-        "/admin/batch-jobs",
-        {
-          type: "batchType_product_import",
-          context: {
-            fileKey: "pi-file-key",
-          },
-        },
-        adminReqConfig
-      )
-
-      console.log(response.data, redisClient)
     })
   })
 })
