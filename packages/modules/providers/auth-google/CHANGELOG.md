@@ -1,5 +1,11 @@
 # @medusajs/auth-google
 
+## 2.0.5
+
+### Patch Changes
+
+- [#10081](https://github.com/medusajs/medusa/pull/10081) [`4c983557f9483cb5ace561974b27697911cee7cc`](https://github.com/medusajs/medusa/commit/4c983557f9483cb5ace561974b27697911cee7cc) Thanks [@Furman1331](https://github.com/Furman1331)! - feature: Add email to google provider-identity metadata
+
 ## 2.0.4
 
 ## 2.0.3

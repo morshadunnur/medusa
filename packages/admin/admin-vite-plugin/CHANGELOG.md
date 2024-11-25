@@ -1,5 +1,14 @@
 # @medusajs/admin-vite-plugin
 
+## 2.0.5
+
+### Patch Changes
+
+- [#10236](https://github.com/medusajs/medusa/pull/10236) [`96b8963a6c0ac634de9af45ce3be285fc8030b85`](https://github.com/medusajs/medusa/commit/96b8963a6c0ac634de9af45ce3be285fc8030b85) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(admin-vite-plugin): Move @babel/types to dependencies from devDependencies to make it compatible with Yarn PnP
+
+- Updated dependencies [[`a153bc477c421cd3cfc6f2cb7e30f2f3661f5922`](https://github.com/medusajs/medusa/commit/a153bc477c421cd3cfc6f2cb7e30f2f3661f5922)]:
+  - @medusajs/admin-shared@2.0.5
+
 ## 2.0.4
 
 ### Patch Changes

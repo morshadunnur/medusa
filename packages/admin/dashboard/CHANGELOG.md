@@ -1,5 +1,24 @@
 # @medusajs/dashboard
 
+## 2.0.5
+
+### Patch Changes
+
+- [#10117](https://github.com/medusajs/medusa/pull/10117) [`8ed3d87c23c5b9e23d225f5463e3ab11abd5b6a0`](https://github.com/medusajs/medusa/commit/8ed3d87c23c5b9e23d225f5463e3ab11abd5b6a0) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(dashboard): Add missing inventory_item.list.\* widgets
+
+- [#10079](https://github.com/medusajs/medusa/pull/10079) [`493d242c1259cdc68ecdce5f0f9d7885cbd67094`](https://github.com/medusajs/medusa/commit/493d242c1259cdc68ecdce5f0f9d7885cbd67094) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(dashboard): Ensure Breadcrumbs don't display stale data
+
+- [#10098](https://github.com/medusajs/medusa/pull/10098) [`a153bc477c421cd3cfc6f2cb7e30f2f3661f5922`](https://github.com/medusajs/medusa/commit/a153bc477c421cd3cfc6f2cb7e30f2f3661f5922) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(admin-shared,dashboard): Add missing Injection Zones and remove unused zones"
+
+- [#10082](https://github.com/medusajs/medusa/pull/10082) [`dea86d8c8774d5badadefbc92352d5145245a22f`](https://github.com/medusajs/medusa/commit/dea86d8c8774d5badadefbc92352d5145245a22f) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(dashboard): Fix active nav link styling for built-in routes
+
+- [#10213](https://github.com/medusajs/medusa/pull/10213) [`60b13c191ed8164951e4743f19e1cdc1efd3b5fc`](https://github.com/medusajs/medusa/commit/60b13c191ed8164951e4743f19e1cdc1efd3b5fc) Thanks [@ederwii](https://github.com/ederwii)! - feat(dashboard): Add Spanish i18n
+
+- Updated dependencies [[`6680f69588332e25e6be2115248dd72fe18334b7`](https://github.com/medusajs/medusa/commit/6680f69588332e25e6be2115248dd72fe18334b7), [`a153bc477c421cd3cfc6f2cb7e30f2f3661f5922`](https://github.com/medusajs/medusa/commit/a153bc477c421cd3cfc6f2cb7e30f2f3661f5922), [`d6ff8d7aa16fe83a6cb15e9cc46360316625189e`](https://github.com/medusajs/medusa/commit/d6ff8d7aa16fe83a6cb15e9cc46360316625189e)]:
+  - @medusajs/js-sdk@2.0.5
+  - @medusajs/admin-shared@2.0.5
+  - @medusajs/icons@2.0.5
+
 ## 2.0.4
 
 ### Patch Changes

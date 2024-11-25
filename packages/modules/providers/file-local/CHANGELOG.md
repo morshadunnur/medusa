@@ -1,5 +1,11 @@
 # @medusajs/file-local
 
+## 2.0.5
+
+### Patch Changes
+
+- [#10087](https://github.com/medusajs/medusa/pull/10087) [`06ce16c90ba1cc20daa8c10fadab067d9381a7d1`](https://github.com/medusajs/medusa/commit/06ce16c90ba1cc20daa8c10fadab067d9381a7d1) Thanks [@carlos-r-l-rodrigues](https://github.com/carlos-r-l-rodrigues)! - Throw error from local file provider
+
 ## 2.0.4
 
 ## 2.0.3

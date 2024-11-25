@@ -1,5 +1,11 @@
 # @medusajs/admin-shared
 
+## 2.0.5
+
+### Patch Changes
+
+- [#10098](https://github.com/medusajs/medusa/pull/10098) [`a153bc477c421cd3cfc6f2cb7e30f2f3661f5922`](https://github.com/medusajs/medusa/commit/a153bc477c421cd3cfc6f2cb7e30f2f3661f5922) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(admin-shared,dashboard): Add missing Injection Zones and remove unused zones"
+
 ## 2.0.4
 
 ## 2.0.3

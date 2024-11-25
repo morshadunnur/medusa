@@ -1,5 +1,13 @@
 # @medusajs/types
 
+## 2.0.5
+
+### Patch Changes
+
+- [#10159](https://github.com/medusajs/medusa/pull/10159) [`9dff05cddeeca40fab47760fa15e07ca087664ed`](https://github.com/medusajs/medusa/commit/9dff05cddeeca40fab47760fa15e07ca087664ed) Thanks [@thetutlage](https://github.com/thetutlage)! - Revert "feat: add optional fields"
+
+- [#10168](https://github.com/medusajs/medusa/pull/10168) [`3fee17747f059a331e9fbe40622205b968404faf`](https://github.com/medusajs/medusa/commit/3fee17747f059a331e9fbe40622205b968404faf) Thanks [@shahednasser](https://github.com/shahednasser)! - fix(types): fix AdminBatchProductRequest to have product ID
+
 ## 2.0.4
 
 ### Patch Changes
