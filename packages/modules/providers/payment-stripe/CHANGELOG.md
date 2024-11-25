@@ -1,5 +1,11 @@
 # @medusajs/payment-stripe
 
+## 2.0.5
+
+### Patch Changes
+
+- [#10135](https://github.com/medusajs/medusa/pull/10135) [`b1b7a4abf10956d2d2863ba2b7e08e39b1abfbc1`](https://github.com/medusajs/medusa/commit/b1b7a4abf10956d2d2863ba2b7e08e39b1abfbc1) Thanks [@adrien2p](https://github.com/adrien2p)! - fix(payment): Idempotent cancellation and proper creationg fail handling
+
 ## 2.0.4
 
 ## 2.0.3

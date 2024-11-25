@@ -1,5 +1,13 @@
 # @medusajs/notification
 
+## 2.0.5
+
+### Patch Changes
+
+- [#10119](https://github.com/medusajs/medusa/pull/10119) [`2822972e04f12d2ca9378dd09529ab6ca308a286`](https://github.com/medusajs/medusa/commit/2822972e04f12d2ca9378dd09529ab6ca308a286) Thanks [@adrien2p](https://github.com/adrien2p)! - Fix/mikro orm cli wrapper
+
+- [#10138](https://github.com/medusajs/medusa/pull/10138) [`7aa990795cf262f98b86adb7f14d6f146620bc1d`](https://github.com/medusajs/medusa/commit/7aa990795cf262f98b86adb7f14d6f146620bc1d) Thanks [@adrien2p](https://github.com/adrien2p)! - chore(): Update module provider retrieval error message and type
+
 ## 2.0.4
 
 ## 2.0.3

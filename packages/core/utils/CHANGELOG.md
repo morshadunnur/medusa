@@ -1,5 +1,20 @@
 # @medusajs/utils
 
+## 2.0.5
+
+### Patch Changes
+
+- [#10159](https://github.com/medusajs/medusa/pull/10159) [`9dff05cddeeca40fab47760fa15e07ca087664ed`](https://github.com/medusajs/medusa/commit/9dff05cddeeca40fab47760fa15e07ca087664ed) Thanks [@thetutlage](https://github.com/thetutlage)! - Revert "feat: add optional fields"
+
+- [#10179](https://github.com/medusajs/medusa/pull/10179) [`42c08fa8e00d33e93e152b3058d2f73476b9a0c3`](https://github.com/medusajs/medusa/commit/42c08fa8e00d33e93e152b3058d2f73476b9a0c3) Thanks [@carlos-r-l-rodrigues](https://github.com/carlos-r-l-rodrigues)! - Fix loaders path
+
+- [#10085](https://github.com/medusajs/medusa/pull/10085) [`3e265229f2ae5c3d55f64a445574c13c40b52c14`](https://github.com/medusajs/medusa/commit/3e265229f2ae5c3d55f64a445574c13c40b52c14) Thanks [@carlos-r-l-rodrigues](https://github.com/carlos-r-l-rodrigues)! - Improve event bus error handling
+
+- [#10172](https://github.com/medusajs/medusa/pull/10172) [`7390c14c20f7b5053458de1b1a58870dc8e441cc`](https://github.com/medusajs/medusa/commit/7390c14c20f7b5053458de1b1a58870dc8e441cc) Thanks [@thetutlage](https://github.com/thetutlage)! - feat(utils): add support for making relationships searchable
+
+- Updated dependencies [[`9dff05cddeeca40fab47760fa15e07ca087664ed`](https://github.com/medusajs/medusa/commit/9dff05cddeeca40fab47760fa15e07ca087664ed), [`3fee17747f059a331e9fbe40622205b968404faf`](https://github.com/medusajs/medusa/commit/3fee17747f059a331e9fbe40622205b968404faf)]:
+  - @medusajs/types@2.0.5
+
 ## 2.0.4
 
 ### Patch Changes

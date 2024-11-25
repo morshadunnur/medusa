@@ -1,5 +1,19 @@
 # @medusajs/framework
 
+## 2.0.5
+
+### Patch Changes
+
+- [#10179](https://github.com/medusajs/medusa/pull/10179) [`42c08fa8e00d33e93e152b3058d2f73476b9a0c3`](https://github.com/medusajs/medusa/commit/42c08fa8e00d33e93e152b3058d2f73476b9a0c3) Thanks [@carlos-r-l-rodrigues](https://github.com/carlos-r-l-rodrigues)! - Fix loaders path
+
+- Updated dependencies [[`aeb5b43692df8b69cfb9af7d7fed2c757f3f1d1e`](https://github.com/medusajs/medusa/commit/aeb5b43692df8b69cfb9af7d7fed2c757f3f1d1e), [`9dff05cddeeca40fab47760fa15e07ca087664ed`](https://github.com/medusajs/medusa/commit/9dff05cddeeca40fab47760fa15e07ca087664ed), [`42c08fa8e00d33e93e152b3058d2f73476b9a0c3`](https://github.com/medusajs/medusa/commit/42c08fa8e00d33e93e152b3058d2f73476b9a0c3), [`3e265229f2ae5c3d55f64a445574c13c40b52c14`](https://github.com/medusajs/medusa/commit/3e265229f2ae5c3d55f64a445574c13c40b52c14), [`1eef324af33cfb70b414ac564788f28dfd6d2c18`](https://github.com/medusajs/medusa/commit/1eef324af33cfb70b414ac564788f28dfd6d2c18), [`3fee17747f059a331e9fbe40622205b968404faf`](https://github.com/medusajs/medusa/commit/3fee17747f059a331e9fbe40622205b968404faf), [`7390c14c20f7b5053458de1b1a58870dc8e441cc`](https://github.com/medusajs/medusa/commit/7390c14c20f7b5053458de1b1a58870dc8e441cc)]:
+  - @medusajs/orchestration@2.0.5
+  - @medusajs/workflows-sdk@2.0.5
+  - @medusajs/types@2.0.5
+  - @medusajs/utils@2.0.5
+  - @medusajs/modules-sdk@2.0.5
+  - @medusajs/telemetry@2.0.5
+
 ## 2.0.4
 
 ### Patch Changes
